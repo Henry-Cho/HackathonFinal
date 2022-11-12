@@ -6,7 +6,7 @@ import { Button } from "../elements";
 
 export default function Home(props) {
     const is_login = useSelector((state) => state.user.is_login);
-    const user_name = useSelector((state) => state.user.user?.username);
+    const user_name = useSelector((state) => state.user.user?.user_name);
     return (<>
     <h1>Home</h1>
     {is_login ? <>Hi {user_name}</> : <></>}

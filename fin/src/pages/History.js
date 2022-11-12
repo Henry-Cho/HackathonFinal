@@ -17,7 +17,7 @@ export default function History(props) {
 
     return (<>
     <h1>History</h1>
-    { !is_login ? <>
+    { is_login ? <>
         <h2>Total Fund: {total_fund}</h2>
     { total_transaction_list && total_transaction_list.map((t_list, idx) => {
         return(<>

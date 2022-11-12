@@ -1,21 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { deleteCookie, getCookie, setCookie } from '../../shared/Cookies';
+import { deleteCookie } from '../../shared/Cookies';
 import { auth } from "../../shared/firebase"
 import { redirect } from "../../shared/redirect"
 import firebase from "firebase/compat/app";
-import axios from "axios";
-import { config } from "../../shared/config"
 
 const initialState = {
     user: null,
     is_login: false,
-}
-
-axios.defaults.baseURL = config.api;
-if (getCookie("is_login")) {
-  axios.defaults.headers.common["Authorization"] = `Bearer ${getCookie(
-    "is_login"
-  )}`;
 }
 
 export const userSlice = createSlice({
@@ -45,44 +36,43 @@ export const logoutAction = () => {
 
 export const loginFB = (id, pwd, navigate) => {
     return function (dispatch) {
-      axios.post(config.api + '/api/login', {
-        user: id,
-        password: pwd
-    }).then(response => {
-        console.log(response);
-        if(response.data.data.error) {
-            console.log(response.data.data.error);
-            return;
-        }
-        setCookie("is_login", response.data.data.authtoken)
-        setCookie("user_id", response.data.data.username, 3);
-        dispatch(log_in(response.data.data))
-        navigate("/");
-    }).catch(error => {
-        console.error(error);
-    });
+        auth.setPersistence(firebase.auth.Auth.Persistence.SESSION)
+        .then((res) => {
+            auth
+            .signInWithEmailAndPassword(id, pwd)
+            .then((user) => {
+                console.log(user);
+
+                dispatch(log_in({
+                    user_name: user.user.displayName,
+                    id: id,
+                    user_profile: "",
+                    uid: user.user.uid,
+                }));
+                navigate("/");
+            })
+        })
     }
 }
 
-export const signupFB = (id, email, pwd, navigate) => {
+export const signupFB = (id, pwd, user_name, navigate) => {
     return function (dispacth) {
-      axios.post(config.api + '/api/register', {
-        username: id,
-        email: email,
-        password: pwd
-    })
-    .then(response => {
-        console.log(response);
-        if(response.data.data.error) {
-            console.log(response.data.data.error);
-            return;
-        }
-        
-        navigate("/login");
-    })
-    .catch(error => {
-        console.error(error);
-    });
+        auth
+        .createUserWithEmailAndPassword(id, pwd)
+        .then((user) => {
+            console.log(user);
+
+            auth.currentUser.updateProfile({
+                displayName: user_name,
+            })
+            navigate("/login");
+        })
+        .catch((error) => {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+
+            console.log(errorCode, errorMessage);
+          });
     }
 }
 
@@ -104,7 +94,7 @@ export const loginCheckFB = () => {
       })
     }
   }
-  
+
 export const logoutFB = (navigate) => {
     return function (dispatch) {
       auth.signOut().then(() => {

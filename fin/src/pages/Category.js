@@ -26,7 +26,7 @@ export default function Category(props) {
     }
 
     const addGoal = () => {
-        dispatch(add_goal_list({goal_type: category_type, goal_title: title, desired_amount: amount, desired_date: date}, navigate));
+        dispatch(add_goal_list({goal_type: category_type, goal_title: title, desired_amount: amount, desired_date: date }, navigate));
     }
     return (<>
         <h1>Category: {category_type}</h1>

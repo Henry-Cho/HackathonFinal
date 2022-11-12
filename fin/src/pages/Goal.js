@@ -53,7 +53,7 @@ export default function Goal(props) {
     return (<>
     <h1>Goal</h1>
 
-    {!is_login ? <>
+    {is_login ? <>
         <div>
             <p>Current Total Fund: {total_fund}</p>
         </div>
