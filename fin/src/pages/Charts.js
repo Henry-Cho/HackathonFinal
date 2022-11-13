@@ -13,25 +13,25 @@ export default function Charts(props) {
                 {
                     id: 1,
                     label: 'House',
-                    data: [300, 300 * 2, 300 * 3, 300 * 4, 300 * 5, 300 * 6, 300 * 7, 300 * 8, 300 * 9],
+                    data: [null, null, null, null, null, null, 0, 300, 300 * 2],
                     borderColor: 'blue'
                 },
                 {
                     id: 2,
                     label: 'Car',
-                    data: [200, 200 * 2, 200 * 3, 200 * 4, 200 * 5, 200 * 6, 200 * 7, 200 * 8, 200 * 9],
+                    data: [null, null, null, null, null, null, 0, 200, 200 * 2],
                     borderColor: 'red'
                 },
                 {
                     id: 3,
                     label: 'School',
-                    data: [75, 75 * 2, 75 * 3, 75 * 4, 75 * 5, 75 * 6, 75 * 7, 75 * 8, 75 * 9],
+                    data: [null, null, null, null, null, null, 0, 75, 75 * 2],
                     borderColor: 'green'
                 },
                 {
                     id: 4,
                     label: 'Emergency',
-                    data: [50, 50 * 2, 50 * 3, 50 * 4, 50 * 5, 50 * 6, 50 * 7, 50 * 8, 50 * 9],
+                    data: [null, null, null, null, null, null, 0, 50, 50 * 2],
                     borderColor: 'pink'
                 },
                 ],
