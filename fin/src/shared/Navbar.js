@@ -38,6 +38,7 @@ export default function Navbar() {
                     <CustomLink to="/">Home</CustomLink>
                     <CustomLink to="/goal">Goal</CustomLink>
                     <CustomLink to="/history">History</CustomLink>
+                    <CustomLink to="/chart">Chart</CustomLink>
                     <CustomLink to="/login">Login</CustomLink>
                 </ul>
             </nav>

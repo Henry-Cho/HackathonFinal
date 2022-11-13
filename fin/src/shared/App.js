@@ -5,6 +5,7 @@ import Signup from '../pages/Signup';
 import Home from '../pages/Home'
 import Goal from "../pages/Goal"
 import History from "../pages/History"
+import Charts from "../pages/Charts";
 import React from 'react';
 import {Routes, Route} from "react-router-dom"
 import {useSelector, useDispatch} from "react-redux";
@@ -36,6 +37,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/goal" element={<Goal/>} />
+          <Route path="/chart" element={<Charts/>} />
           <Route path="/history" element={<History/>} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
