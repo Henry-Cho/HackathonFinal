@@ -7,12 +7,12 @@ const Input = (props) => {
 
 //   const styles = {bold: bold, color: color, size: size};
   return (
-    <>
-        <Grid>
-            <Text margin="0px">{label}</Text>
-        <ElInput type={type} value={value} onChange={_onChange} placeholder={placeholder} />
-        </Grid>
-    </>
+        <>
+            <Grid>
+                <Text margin="0px">{label}</Text>
+                <ElInput type={type} value={value} onChange={_onChange} placeholder={placeholder} />
+            </Grid>
+        </>
   )
 };
 
@@ -25,7 +25,7 @@ Input.defaultProps = {
 
 const ElInput = styled.input`
     border: 1px solid #212121;
-    width: 100%;
+    width: 300px;
     padding: 12px 4px;
     box-sizing: border-box;
 `;

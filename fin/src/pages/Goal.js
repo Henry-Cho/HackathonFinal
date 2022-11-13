@@ -73,8 +73,8 @@ export default function Goal(props) {
         {modalOn ? <><FundModal type={isAdd} close={closeModal} /></> : null}
     </> : <>
     <div>
-        <h2>You are not logged in!</h2>
-        <h3>To use this service, you need to log in.</h3>
+        <p><strong>You are not logged in!</strong></p>
+        <p>To use this service, you need to log in.</p>
         <Link to="/login">
             <Button>To Login Page</Button>
         </Link>

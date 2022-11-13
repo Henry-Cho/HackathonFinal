@@ -56,6 +56,7 @@ const Signup = (props) => {
 
                 <Grid padding="16px 0px">
                     <Input
+                        type="password"
                         value={pwd}
                         label="Password"
                         placeholder="Please Type Password"
@@ -67,6 +68,7 @@ const Signup = (props) => {
 
                 <Grid padding="16px 0px">
                     <Input
+                        type="password"
                         value={pwd_check}
                         label="Confirm Password"
                         placeholder="Please Confirm Password"

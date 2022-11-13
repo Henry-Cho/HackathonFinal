@@ -31,20 +31,23 @@ const Login = (props) => {
         // sessionStorage.setItem("is_login", true);
 
     }
+
     return (
         <React.Fragment>
             <Grid padding={16}>
-                <Text type="heading">Login</Text>
+                <Text  size="32px" bold type="heading">Login</Text>
             </Grid>
             <Grid padding={16}>
                 <Input label="Email" value={id} _onChange={changeId} placeholder="Please Enter User Name."/><br></br>
-                <Input label="Passowrd" type="password" value={pwd} _onChange={changePwd} placeholder="Please Enter Password."/>
+                <Input label="Password" type="password" value={pwd} _onChange={changePwd} placeholder="Please Enter Password."/>
             </Grid>
 
-            <Button _onClick={() => {login();}}>Login</Button>
-            <Link to="/signup">
-                <Button>Signup</Button>
-            </Link>
+            <div style={{ marginTop: 30 }}>
+                <Button _onClick={() => {login();}}>Login</Button>
+                <Link to="/signup">
+                    <Button>Signup</Button>
+                </Link>
+            </div>
         </React.Fragment>
     )
 }
